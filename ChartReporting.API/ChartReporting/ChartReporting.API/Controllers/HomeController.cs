@@ -10,7 +10,7 @@ namespace ChartReporting.API.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Chart Reporting API";
 
             return View();
         }
