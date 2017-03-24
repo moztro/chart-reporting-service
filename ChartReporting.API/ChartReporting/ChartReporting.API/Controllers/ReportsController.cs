@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Web.Hosting;
 using System.Web.Http;
 using System.Web.Mvc;
 using static System.Collections.Specialized.BitVector32;
@@ -48,7 +49,8 @@ namespace ChartReporting.API.Controllers
                 doc.Add(chunk);
             
                 List<System.Drawing.Image> images = new List<System.Drawing.Image>();
-                images.Add(System.Drawing.Image.FromFile(@"C:\Users\fcanul\Source\Repos\chart-reporting-service\ChartReporting.API\ChartReporting\ChartReporting.API\Images\Portada.jpg"));
+                string ruta = HostingEnvironment.ApplicationPhysicalPath;
+                images.Add(System.Drawing.Image.FromFile(ruta + "\\Images\\Portada.jpg"));
                 foreach (var image in images)
                 {
                     iTextSharp.text.Image pic = iTextSharp.text.Image.GetInstance(image, System.Drawing.Imaging.ImageFormat.Jpeg);
